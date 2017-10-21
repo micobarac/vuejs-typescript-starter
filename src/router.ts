@@ -1,14 +1,16 @@
 import Vue from 'vue';
-import Router from 'vue-router';
-import { HelloComponent } from './components/hello';
-import { AboutComponent } from './components/about';
+import VueRouter from 'vue-router';
+import { helloRoutes } from './components/hello';
+import { aboutRoutes } from './components/about';
 
-Vue.use(Router);
+Vue.use(VueRouter);
 
-export default new Router({
+const defaultRoute = { path: '*', redirect: '/' };
+
+export default new VueRouter({
   routes: [ 
-    { path: '/', name: 'Hello', component: HelloComponent },
-    { path: '/about', name: 'About', component: AboutComponent },
-    { path: '*', redirect: '/' }  
+    helloRoutes,
+    aboutRoutes,
+    defaultRoute
   ]
 })

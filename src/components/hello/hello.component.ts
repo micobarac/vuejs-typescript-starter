@@ -20,5 +20,3 @@ export class HelloComponent extends Vue {
   }
   
 }
-
-Vue.component('hello', HelloComponent);
