@@ -1,4 +1,5 @@
 import Vue from 'vue';
+import { mapState, mapActions } from 'vuex';
 import { Component } from 'vue-property-decorator';
 import { TopbarComponent } from '../elements/topbar/topbar.component';
 
@@ -6,15 +7,13 @@ import { TopbarComponent } from '../elements/topbar/topbar.component';
   name: 'DashboardComponent',
   template: require('./dashboard.component.html'),
   style: require('./dashboard.component.scss'),
-  components: { TopbarComponent }
+  components: { TopbarComponent },
+  computed: {
+    ...mapState(['isSidebarVisible', 'sidebarLinks'])
+  },
+  methods: { 
+    ...mapActions(['toggleSidebar']) 
+  }
 })
 export class DashboardComponent extends Vue {
-  [x: string]: any;
-  
-  toggleSidebar () {
-    if (this.$sidebar.showSidebar) {
-      this.$sidebar.displaySidebar(false)
-    }
-  }
-  
 }

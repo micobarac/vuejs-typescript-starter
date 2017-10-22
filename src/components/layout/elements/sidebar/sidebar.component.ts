@@ -99,3 +99,5 @@ export class SidebarComponent extends Vue {
   }
   
 }
+
+Vue.component('sidebar', SidebarComponent);

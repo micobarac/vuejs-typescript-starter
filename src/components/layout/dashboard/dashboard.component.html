@@ -1,5 +1,5 @@
-<div class="wrapper">
-  <sidebar type="sidebar" :sidebar-links="$sidebar.sidebarLinks">
+<div class="wrapper" @click.native="toggleSidebar">
+  <sidebar type="sidebar" :sidebar-links="sidebarLinks">
     
   </sidebar>
 <!--   <notifications>

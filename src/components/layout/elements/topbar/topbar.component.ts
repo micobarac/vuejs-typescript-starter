@@ -1,10 +1,17 @@
 import Vue from 'vue';
+import { mapState, mapActions } from 'vuex';
 import { Component, Provide } from 'vue-property-decorator';
 
 @Component({
   name: 'TopbarComponent',
   template: require('./topbar.component.html'),
-  style: require('./topbar.component.scss')
+  style: require('./topbar.component.scss'),
+  computed: {
+    ...mapState(['isSidebarVisible'])
+  },
+  methods: { 
+    ...mapActions(['displaySidebar', 'toggleSidebar']) 
+  }
 })
 export class TopbarComponent extends Vue {
   [x: string]: any;
@@ -29,12 +36,8 @@ export class TopbarComponent extends Vue {
     this.activeNotifications = false;
   };
 
-  toggleSidebar() {
-    this.$sidebar.displaySidebar(!this.$sidebar.showSidebar);
-  };
-
   hideSidebar() {
-    this.$sidebar.displaySidebar(false);
+    this.displaySidebar(false);
   }
   
 }

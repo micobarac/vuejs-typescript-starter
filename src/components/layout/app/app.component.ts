@@ -1,11 +1,15 @@
 import Vue from 'vue';
+import { mapState } from 'vuex';
 import { Component, Provide } from 'vue-property-decorator';
 import { Logger } from '../../../utils/log';
 
 @Component({
   name: 'AppComponent',
   template: require('./app.component.html'),
-  style: require('./app.component.scss')
+  style: require('./app.component.scss'),
+  computed: {
+    ...mapState(['isSidebarVisible', 'sidebarLinks'])
+  }
 })
 export class AppComponent extends Vue {
 
