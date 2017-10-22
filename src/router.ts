@@ -1,16 +1,17 @@
+// Dependencies
 import Vue from 'vue';
 import VueRouter from 'vue-router';
-import { helloRoutes } from './components/hello';
-import { aboutRoutes } from './components/about';
+
+// Component routes
+import { dashboardRoutes } from './components/layout/dashboard';
+import { notFoundRoutes } from './components/layout/not-found';
 
 Vue.use(VueRouter);
 
-const defaultRoute = { path: '*', redirect: '/' };
-
 export default new VueRouter({
   routes: [ 
-    helloRoutes,
-    aboutRoutes,
-    defaultRoute
-  ]
+    dashboardRoutes,
+    notFoundRoutes
+  ],
+  linkActiveClass: 'active'
 })

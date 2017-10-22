@@ -1,11 +1,27 @@
+// Vue
 import Vue from 'vue';
+
+// Router
 import router from './router';
-import { AppComponent } from './components/app';
 
-require('./assets/styles/main.scss');
+// Plugins
+import vClickOutside from 'v-click-outside';
+import SidebarPlugin from './components/layout/elements/sidebar';
 
-Vue.config.productionTip = false
+// Components
+import { AppComponent } from './components/layout/app';
 
+// Styles
+import 'bootstrap/dist/css/bootstrap.css';
+import './assets/styles/main.scss';
+
+// Setup
+Vue.config.productionTip = false;
+
+Vue.use(vClickOutside);
+Vue.use(SidebarPlugin);
+
+// Vue init
 new Vue({
   el: "app",
   router,
