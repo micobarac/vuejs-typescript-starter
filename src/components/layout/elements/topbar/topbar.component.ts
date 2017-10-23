@@ -1,6 +1,7 @@
 import Vue from 'vue';
 import { mapState, mapActions } from 'vuex';
 import { Component, Provide } from 'vue-property-decorator';
+import { DropdownComponent } from './dropdown/dropdown.component';
 
 @Component({
   name: 'TopbarComponent',
@@ -11,7 +12,8 @@ import { Component, Provide } from 'vue-property-decorator';
   },
   methods: { 
     ...mapActions(['displaySidebar', 'toggleSidebar']) 
-  }
+  },
+  components: { DropdownComponent }
 })
 export class TopbarComponent extends Vue {
   [x: string]: any;

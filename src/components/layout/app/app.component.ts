@@ -1,6 +1,7 @@
 import Vue from 'vue';
 import { mapState } from 'vuex';
 import { Component, Provide } from 'vue-property-decorator';
+import { SidebarComponent } from './../elements/sidebar/sidebar.component';
 import { Logger } from '../../../utils/log';
 
 @Component({
@@ -9,7 +10,8 @@ import { Logger } from '../../../utils/log';
   style: require('./app.component.scss'),
   computed: {
     ...mapState(['isSidebarVisible', 'sidebarLinks'])
-  }
+  },
+  components: { SidebarComponent }
 })
 export class AppComponent extends Vue {
 

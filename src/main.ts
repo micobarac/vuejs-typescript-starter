@@ -13,8 +13,6 @@ sync(store, router);
 
 // Plugins
 import vClickOutside from 'v-click-outside';
-//import SidebarPlugin from './components/layout/elements/sidebar';
-import { SidebarComponent } from './components/layout/elements/sidebar';
 
 // Components
 import { AppComponent } from './components/layout/app';
@@ -27,7 +25,6 @@ import './assets/styles/main.scss';
 Vue.config.productionTip = false;
 
 Vue.use(vClickOutside);
-//Vue.use(SidebarPlugin);
 
 // Vue init
 new Vue({
@@ -35,7 +32,6 @@ new Vue({
   router,
   store,
   components: {
-    AppComponent,
-    SidebarComponent
+    AppComponent
   }
 });

@@ -1,0 +1,13 @@
+<li class="dropdown" :class="{open:isOpen}" @click="toggleDropDown" v-on-clickaway="closeDropDown">
+  <a href="javascript:void(0)" class="dropdown-toggle btn-rotate" data-toggle="dropdown">
+    <slot name="title">
+      <i :class="icon"></i>
+      <p class="notification">{{title}}
+        <b class="caret"></b>
+      </p>
+    </slot>
+  </a>
+  <ul class="dropdown-menu">
+    <slot></slot>
+  </ul>
+</li>
