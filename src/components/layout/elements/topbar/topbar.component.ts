@@ -1,22 +1,28 @@
 import Vue from 'vue';
-import { mapState, mapActions } from 'vuex';
 import { Component, Provide } from 'vue-property-decorator';
-import { DropdownComponent } from './dropdown/dropdown.component';
+import { Getter, Action, namespace } from 'vuex-class';
+import { DropdownComponent } from './dropdown';
+
+const SidebarGetter = namespace('sidebar', Getter);
+const SidebarAction = namespace('sidebar', Action);
 
 @Component({
   name: 'TopbarComponent',
   template: require('./topbar.component.html'),
   style: require('./topbar.component.scss'),
-  computed: {
-    ...mapState(['isSidebarVisible'])
-  },
-  methods: { 
-    ...mapActions(['displaySidebar', 'toggleSidebar']) 
-  },
   components: { DropdownComponent }
 })
 export class TopbarComponent extends Vue {
   [x: string]: any;
+
+  @SidebarGetter
+  isSidebarVisible;
+
+  @SidebarAction
+  displaySidebar;
+
+  @SidebarAction
+  toggleSidebar;
   
   @Provide()
   activeNotifications: boolean = false;
@@ -41,7 +47,6 @@ export class TopbarComponent extends Vue {
   hideSidebar() {
     this.displaySidebar(false);
   }
-  
 }
 
 Vue.component('topbar', TopbarComponent);

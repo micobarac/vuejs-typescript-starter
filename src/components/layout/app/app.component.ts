@@ -1,20 +1,25 @@
 import Vue from 'vue';
-import { mapState } from 'vuex';
 import { Component, Provide } from 'vue-property-decorator';
-import { SidebarComponent } from './../elements/sidebar/sidebar.component';
+import { Getter, namespace } from 'vuex-class';
+import { SidebarComponent } from '../elements/sidebar';
+import { DropdownComponent } from '../elements/topbar/dropdown';
 import { Logger } from '../../../utils/log';
+
+const SidebarGetter = namespace('sidebar', Getter);
 
 @Component({
   name: 'AppComponent',
   template: require('./app.component.html'),
   style: require('./app.component.scss'),
-  computed: {
-    ...mapState(['isSidebarVisible', 'sidebarLinks'])
-  },
-  components: { SidebarComponent }
+  components: { SidebarComponent, DropdownComponent }
 })
 export class AppComponent extends Vue {
+  @SidebarGetter('isSidebarVisible')
+  isSidebarVisible;
 
+  @SidebarGetter
+  sidebarLinks;
+  
   @Provide()
   title: String = 'Welcome to Your Vue.js App';
   
@@ -24,7 +29,6 @@ export class AppComponent extends Vue {
     if (!this.logger) this.logger = new Logger();
     this.$nextTick(() => this.logger.info('App is ready!'));
   }
-  
 }
 
 Vue.component('app', AppComponent);

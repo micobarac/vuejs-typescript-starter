@@ -26,7 +26,6 @@
     background-size: cover;
     background-position: center center;
   }
-
 }
 
 .sidebar,
@@ -36,8 +35,8 @@
   font-weight: 200;
 
   .logo {
-    padding: 13px 0;
-    margin: 0 20px;
+    padding: 18px 0 14px 0;
+    margin: 0 15px 0 23px;
 
     p {
       float: left;
@@ -52,21 +51,21 @@
       font-size: $font-size-base;
       text-align: center;
       font-weight: $font-weight-bold;
-      line-height: 40px;
+      line-height: 34px;
       text-align: left;
 
-      .logo-img{
-          width: 40px;
+      .logo-img {
+          width: 34px;
           display: inline-block;
-          height: 40px;
+          height: 34px;
           margin-left: 0px;
           margin-right: 10px;
           background: white;
           border-radius: 40px;
           text-align: center;
 
-        img{
-            max-width: 21px;
+        img {
+            max-width: 18px;
         }
       }
     }

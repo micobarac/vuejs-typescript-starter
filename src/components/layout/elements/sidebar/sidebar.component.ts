@@ -1,6 +1,6 @@
 import Vue from 'vue';
 import { Component, Prop, Provide, Watch } from 'vue-property-decorator';
-import { ArrowComponent } from './arrow/arrow.component';
+import { ArrowComponent } from './arrow';
 
 @Component({
   name: 'SidebarComponent',

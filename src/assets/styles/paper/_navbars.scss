@@ -13,6 +13,32 @@
   font-size: $font-size-navbar;
   z-index: 0;
 
+  .navbar-minimize {
+    float: left;
+
+    .btn {
+      margin: 18px 3px;
+      border-radius: 25px;
+      padding: 7px 10px;
+
+      .ti-more-alt {
+        display: inline-block;
+        min-width: 14px;
+        -webkit-transform: rotate(90deg);
+        -ms-transform: rotate(90deg);
+        transform: rotate(90deg);
+      }
+
+      i {
+        margin-right: 0px;
+      }
+    }
+
+    .btn [class*="ti-"] {
+      vertical-align: middle;
+    }
+  }
+
   .navbar-brand {
     font-weight: $font-weight-bold;
     margin: $navbar-margin-brand;

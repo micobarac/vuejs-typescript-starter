@@ -1,19 +1,24 @@
 import Vue from 'vue';
-import { mapState, mapActions } from 'vuex';
 import { Component } from 'vue-property-decorator';
-import { TopbarComponent } from '../elements/topbar/topbar.component';
+import { Getter, Action, namespace } from 'vuex-class';
+import { TopbarComponent } from '../elements/topbar';
+
+const SidebarGetter = namespace('sidebar', Getter);
+const SidebarAction = namespace('sidebar', Action);
 
 @Component({
   name: 'DashboardComponent',
   template: require('./dashboard.component.html'),
   style: require('./dashboard.component.scss'),
-  components: { TopbarComponent },
-  computed: {
-    ...mapState(['isSidebarVisible', 'sidebarLinks'])
-  },
-  methods: { 
-    ...mapActions(['toggleSidebar']) 
-  }
+  components: { TopbarComponent }
 })
-export class DashboardComponent extends Vue {
+export default class DashboardComponent extends Vue {
+  @SidebarGetter
+  isSidebarVisible;
+
+  @SidebarGetter
+  sidebarLinks;
+
+  @SidebarAction
+  toggleSidebar;
 }

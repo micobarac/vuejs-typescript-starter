@@ -1,0 +1,24 @@
+.sidebar:before,
+body > .navbar-collapse:before {
+  opacity: .33;
+  background: #000000; 
+}
+
+.sidebar:after,
+body > .navbar-collapse:after {
+  background: #282828;
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #282828), color-stop(100%, #111));
+  background: -webkit-linear-gradient(top, #282828 0%, #111 100%);
+  background: -o-linear-gradient(top, #282828 0%, #111 100%);
+  background: -webkit-gradient(linear, left top, left bottom, from(#282828), to(#111));
+  background: linear-gradient(to bottom, #282828 0%, #111 100%);
+  background-size: 150% 150%;
+  z-index: 3;
+  opacity: 1; 
+}
+
+.sidebar[data-image]:after, .sidebar.has-image:after,
+body > .navbar-collapse[data-image]:after,
+body > .navbar-collapse.has-image:after {
+  opacity: .77; 
+}

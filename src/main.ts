@@ -3,10 +3,10 @@ import Vue from 'vue';
 
 // Vuex
 import { sync } from 'vuex-router-sync';
-import store from './store';
+import { store } from './store';
 
 // Router
-import router from './router';
+import router from './router/router';
 
 // Vuex router sync
 sync(store, router);
@@ -24,6 +24,7 @@ import './assets/styles/main.scss';
 // Setup
 Vue.config.productionTip = false;
 
+// Plugins
 Vue.use(vClickOutside);
 
 // Vue init
