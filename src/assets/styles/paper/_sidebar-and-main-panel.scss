@@ -35,7 +35,12 @@
 .off-canvas-sidebar {
   width: 260px;
   display: block;
-  font-weight: 200;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 3;
+  overflow: hidden;
 
   .logo {
     height: 75px;
@@ -197,4 +202,78 @@
   position: absolute;
   overflow: hidden;
   overflow-y: hidden;
+}
+
+@media (min-width: 992px){
+  .sidebar-mini {
+    .sidebar,
+    .sidebar .sidebar-wrapper {
+      width: 80px;
+    }
+
+    .main-panel {
+      width: $sidebar-mini-width;
+    }
+
+    .sidebar {
+      display: block;
+      font-weight: 200;
+      z-index: 3;
+
+      .logo {
+        a.logo-mini {
+          opacity: 1;
+        }
+
+        a.logo-normal {
+          opacity: 0;
+          @include transform-translate-x(-25px);
+        }
+      }
+
+      .sidebar-wrapper {
+        > .nav [data-toggle="collapse"] ~ div > ul > li > a .sidebar-normal,
+        .user .info [data-toggle="collapse"] ~ div > ul > li > a .sidebar-normal,
+        .user .info > a > span,
+        > .nav li > a p {
+          @include transform-translate-x(-25px);
+          opacity: 0;
+        }
+      }
+    }
+
+    .sidebar:hover {
+      width: 260px;
+
+      .logo {
+        a.logo-normal {
+          opacity: 1;
+          @include transform-translate-x(0px);
+        }
+      }
+
+      .sidebar-wrapper {
+        width: 260px;
+
+        > .nav li > a p,
+        > .nav [data-toggle="collapse"] ~ div > ul > li > a .sidebar-normal,
+        .user .info [data-toggle="collapse"] ~ div > ul > li > a .sidebar-normal,
+        .user .info > a > span {
+          @include transform-translate-x(0px);
+          opacity: 1;
+        }
+
+        > .nav {
+          li.active {
+            > a:not([data-toggle="collapse"]){
+              &:before,
+              &:after{
+                opacity: 0;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
 }
