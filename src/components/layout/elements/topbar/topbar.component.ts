@@ -16,7 +16,7 @@ export class TopbarComponent extends Vue {
   [x: string]: any;
 
   @SidebarGetter
-  isSidebarVisible;
+  isSidebarVisible: Boolean;
 
   @SidebarAction
   displaySidebar;

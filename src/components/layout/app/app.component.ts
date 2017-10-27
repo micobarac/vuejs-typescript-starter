@@ -3,6 +3,7 @@ import { Component, Provide } from 'vue-property-decorator';
 import { Getter, namespace } from 'vuex-class';
 import { SidebarComponent } from '../elements/sidebar';
 import { DropdownComponent } from '../elements/topbar/dropdown';
+import { SidebarLink } from './../../../models/types';
 import { Logger } from '../../../utils/log';
 
 const SidebarGetter = namespace('sidebar', Getter);
@@ -15,10 +16,10 @@ const SidebarGetter = namespace('sidebar', Getter);
 })
 export class AppComponent extends Vue {
   @SidebarGetter('isSidebarVisible')
-  isSidebarVisible;
+  isSidebarVisible: Boolean;
 
   @SidebarGetter
-  sidebarLinks;
+  sidebarLinks: Array<SidebarLink>;
   
   @Provide()
   title: String = 'Welcome to Your Vue.js App';
