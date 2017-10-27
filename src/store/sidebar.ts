@@ -3,6 +3,7 @@ import { SidebarState, SidebarLink } from '../models/types';
 
 export const state: SidebarState = {
   isSidebarVisible: false,
+  isSidebarMinimal: false,
   sidebarLinks: [
     {
       name: 'Dashboard',
@@ -45,6 +46,7 @@ export const state: SidebarState = {
 
 export const getters: GetterTree<SidebarState, any> = {
   isSidebarVisible: state => state.isSidebarVisible,
+  isSidebarMinimal: state => state.isSidebarMinimal,
   sidebarLinks: state => state.sidebarLinks
 }
 
@@ -52,8 +54,14 @@ export const mutations: MutationTree<SidebarState> = {
   displaySidebar(state, value) {
     state.isSidebarVisible = value;
   },
-  toggleSidebar(state) {
+  minimizeSidebar(state, value) {
+    state.isSidebarMinimal = value;
+  },
+  toggleSidebarDisplay(state) {
     state.isSidebarVisible = !state.isSidebarVisible;
+  },
+  toggleSidebarSize(state) {
+    state.isSidebarMinimal = !state.isSidebarMinimal;
   }
 }
 
@@ -61,8 +69,14 @@ export const actions: ActionTree<SidebarState, any> = {
   displaySidebar: ({ commit }, value) => {
     commit('displaySidebar', value);
   },
-  toggleSidebar: ({ commit }) => {
-    commit('toggleSidebar');
+  minimizeSidebar: ({ commit }, value) => {
+    commit('minimizeSidebar', value);
+  },
+  toggleSidebarDisplay: ({ commit }) => {
+    commit('toggleSidebarDisplay');
+  },
+  toggleSidebarSize: ({ commit }) => {
+    commit('toggleSidebarSize');
   }
 }
 

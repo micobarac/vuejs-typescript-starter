@@ -42,17 +42,17 @@ export class SidebarComponent extends Vue {
 
   get sidebarClasses() {
     if (this.type === 'sidebar') {
-      return 'sidebar'
+      return 'sidebar';
     } else {
-      return 'collapse navbar-collapse off-canvas-sidebar'
+      return 'collapse navbar-collapse off-canvas-sidebar';
     }
   }
 
   get navClasses() {
     if (this.type === 'sidebar') {
-      return 'nav'
+      return 'nav';
     } else {
-      return 'nav navbar-nav'
+      return 'nav navbar-nav';
     }
   }
 

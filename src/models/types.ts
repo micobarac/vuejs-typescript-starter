@@ -1,6 +1,7 @@
 // Store
 export interface SidebarState {
   isSidebarVisible: Boolean;
+  isSidebarMinimal: Boolean;
   sidebarLinks: SidebarLink[];
 }
 

@@ -15,8 +15,11 @@ const SidebarGetter = namespace('sidebar', Getter);
   components: { SidebarComponent, DropdownComponent }
 })
 export class AppComponent extends Vue {
-  @SidebarGetter('isSidebarVisible')
+  @SidebarGetter
   isSidebarVisible: Boolean;
+
+  @SidebarGetter
+  isSidebarMinimal: Boolean;
 
   @SidebarGetter
   sidebarLinks: Array<SidebarLink>;

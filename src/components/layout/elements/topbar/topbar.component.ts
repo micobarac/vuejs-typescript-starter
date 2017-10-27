@@ -18,11 +18,20 @@ export class TopbarComponent extends Vue {
   @SidebarGetter
   isSidebarVisible: Boolean;
 
+  @SidebarGetter
+  isSidebarMinimal: Boolean;
+
   @SidebarAction
   displaySidebar;
 
   @SidebarAction
-  toggleSidebar;
+  minimizeSidebar;
+
+  @SidebarAction
+  toggleSidebarDisplay;
+
+  @SidebarAction
+  toggleSidebarSize;
   
   @Provide()
   activeNotifications: boolean = false;

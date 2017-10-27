@@ -21,5 +21,5 @@ export default class DashboardComponent extends Vue {
   sidebarLinks: Array<SidebarLink>;
 
   @SidebarAction
-  toggleSidebar;
+  toggleSidebarDisplay;
 }
