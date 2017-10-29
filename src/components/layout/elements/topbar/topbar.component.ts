@@ -16,13 +16,22 @@ export class TopbarComponent extends Vue {
   [x: string]: any;
 
   @SidebarGetter
-  isSidebarVisible;
+  isSidebarVisible: Boolean;
+
+  @SidebarGetter
+  isSidebarMinimal: Boolean;
 
   @SidebarAction
   displaySidebar;
 
   @SidebarAction
-  toggleSidebar;
+  minimizeSidebar;
+
+  @SidebarAction
+  toggleSidebarDisplay;
+
+  @SidebarAction
+  toggleSidebarSize;
   
   @Provide()
   activeNotifications: boolean = false;

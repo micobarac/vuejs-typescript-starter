@@ -219,7 +219,6 @@ $select-coordinates: 50% -40px !default;
 
 $padding-zero: 0px !default;
 
-$sidebar-width: calc(100% - 260px) !default;
 $medium-dark-gray: #AAAAAA !default;
 
 //variables used in cards
@@ -252,3 +251,6 @@ $sidebar-subtitle-purple: #5a283d !default;
 $sidebar-background-orange: #ff8f5e !default;
 $sidebar-font-orange: #772510 !default;
 $sidebar-subtitle-orange: #e95e37 !default;
+
+$sidebar-width:               calc(100% - 260px) !default;
+$sidebar-mini-width:          calc(100% - 85px) !default;

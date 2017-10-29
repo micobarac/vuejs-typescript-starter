@@ -10,12 +10,120 @@
   .sidebar-wrapper {
     position: relative;
     height: 100%;
-    overflow-y: auto;
-    overflow-x: hidden;
-    width: 260px;
+    /*height: calc(100% - 75px);*/
     z-index: 4;
     box-shadow: inset -1px 0px 0px 0px $medium-gray;
+    width: 260px;
+    overflow-x: hidden;
+    overflow-y: hidden;
+
+    .dropdown.open .dropdown-backdrop {
+      display: none !important;
+    }
+
+    > .nav {
+      margin-top: 10px;
+
+      i {
+        font-size: 24px;
+        float: left;
+        margin-right: 15px;
+        line-height: 30px;
+        width: 30px;
+        text-align: center;
+      }
+
+      li {
+        > a {
+          margin: 10px 0px 0px;
+          padding-left: 25px;
+          padding-right: 25px;
+          opacity: .7;
+          white-space: nowrap;
+        }
+
+        &:hover > a {
+          opacity: 1;
+        }
+
+        &.active > a {
+          color: $primary-color;
+          opacity: 1;
+        }
+
+        &.separator {
+          margin: 15px 0;
+
+          &:after {
+            content: "";
+            position: absolute;
+            height: 1px;
+            right: 10%;
+            width: 80%;
+            background-color: rgba(255,255,255, .3);
+          }
+
+          & + li {
+            margin-top: 31px;
+          }
+        }
+      }
+
+      p {
+        margin: 0;
+        line-height: 30px;
+        font-size: 12px;
+        font-weight: 600;
+        text-transform: uppercase;
+        position: relative;
+        @include transform-translate-x(0px);
+        opacity: 1;
+        display: block;
+        height: auto;
+        white-space: nowrap;
+      }
+
+      .caret {
+        margin-top: 12px;
+        position: absolute;
+        right: 1px;
+      }
+
+      [data-toggle="collapse"] ~ div > ul > li > a {
+        margin: 0;
+      }
+    }
+
+    > .nav,
+    .user .info {
+      [data-toggle="collapse"] ~ div > ul > li > a{
+        .sidebar-normal {
+          margin: 0;
+          position: relative;
+          @include transform-translate-x(0px);
+          opacity: 1;
+          white-space: nowrap;
+          display: block;
+        }
+
+        .sidebar-mini {
+          text-transform: uppercase;
+          float: left;
+          width: 30px;
+          text-align: center;
+          margin-right: 15px;
+          letter-spacing: 1px;
+        }
+
+        i {
+          font-size: 17px;
+          line-height: 20px;
+          width: 26px;
+        }
+      }
+    }
   }
+
   .sidebar-background {
     position: absolute;
     z-index: 1;
@@ -27,6 +135,49 @@
     background-size: cover;
     background-position: center center;
   }
+
+  .logo {
+
+    a.logo-normal {
+      display: block;
+      opacity: 1;
+      @include transform-translate-x(0px);
+    }
+
+    a.logo-mini{
+      float: left;
+      text-align: center;
+    }
+
+    .simple-text {
+      padding: 4px 0px;
+      display: block;
+      font-size: 14px;
+      text-align: center;
+      font-weight: 600;
+      line-height: 34px;
+      text-align: left;
+      white-space: nowrap;
+    }
+    
+    p {
+      float: left;
+      font-size: 20px;
+      margin: 10px 10px;
+      line-height: 20px;
+    }
+
+    &:before{
+      content: "";
+      position: absolute;
+      bottom: 0px;
+      right: 15px;
+      width: calc(100% - 30px);
+      height: 1px;
+    }
+
+  }
+
 }
 
 .sidebar,
@@ -36,8 +187,9 @@
   font-weight: 200;
 
   .logo {
-    padding: 18px 0 14px 0;
-    margin: 0 15px 0 23px;
+    height: 75px;
+    padding: 18px 0;
+    margin: 0 18px;
 
     p {
       float: left;
@@ -48,7 +200,6 @@
 
     .simple-text {
       padding: $padding-small-vertical $padding-zero;
-      display: block;
       font-size: $font-size-base;
       text-align: center;
       font-weight: $font-weight-bold;
@@ -59,7 +210,7 @@
           width: 34px;
           display: inline-block;
           height: 34px;
-          margin-left: 0px;
+          margin-left: 7px;
           margin-right: 10px;
           background: white;
           border-radius: 40px;
@@ -177,16 +328,17 @@
 }
 
 .sidebar,
-.main-panel {
+.main-panel,
+.sidebar-wrapper {
   overflow: auto;
   max-height: 100%;
   height: 100%;
-  -webkit-transition-property: top, bottom;
-  transition-property: top, bottom;
-  -webkit-transition-duration: .2s, .2s;
-  transition-duration: .2s, .2s;
-  -webkit-transition-timing-function: linear, linear;
-  transition-timing-function: linear, linear;
+  -webkit-transition-property: top,bottom,width;
+  transition-property: top,bottom, width;
+  -webkit-transition-duration: .2s,.2s, .35s;
+  transition-duration: .2s,.2s, .35s;
+  -webkit-transition-timing-function: linear,linear,ease;
+  transition-timing-function: linear,linear,ease;
   -webkit-overflow-scrolling: touch;
 }
 
@@ -194,4 +346,82 @@
   position: absolute;
   overflow: hidden;
   overflow-y: hidden;
+}
+
+@media (min-width: 992px){
+  .sidebar-mini {
+    .sidebar,
+    .sidebar .sidebar-wrapper {
+      width: 85px;
+    }
+
+    .main-panel {
+      width: $sidebar-mini-width;
+    }
+
+    .sidebar {
+      display: block;
+      font-weight: 200;
+      z-index: 3;
+
+      .logo {
+
+        a.logo-mini {
+          opacity: 1;
+        }
+
+        a.logo-normal {
+          opacity: 0;
+          @include transform-translate-x(-25px);
+        }
+
+      }
+
+      .sidebar-wrapper {
+
+        > .nav [data-toggle="collapse"] ~ div > ul > li > a .sidebar-normal,
+        .user .info [data-toggle="collapse"] ~ div > ul > li > a .sidebar-normal,
+        .user .info > a > span,
+        > .nav li > a p {
+          @include transform-translate-x(-25px);
+          opacity: 0;
+        }
+
+      }
+    }
+
+    .sidebar:hover {
+      width: 260px;
+
+      .logo {
+        a.logo-normal {
+          opacity: 1;
+          @include transform-translate-x(0px);
+        }
+      }
+
+      .sidebar-wrapper {
+        width: 260px;
+
+        > .nav li > a p,
+        > .nav [data-toggle="collapse"] ~ div > ul > li > a .sidebar-normal,
+        .user .info [data-toggle="collapse"] ~ div > ul > li > a .sidebar-normal,
+        .user .info > a > span {
+          @include transform-translate-x(0px);
+          opacity: 1;
+        }
+
+        > .nav {
+          li.active {
+            > a:not([data-toggle="collapse"]){
+              &:before,
+              &:after{
+                opacity: 0;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
 }
