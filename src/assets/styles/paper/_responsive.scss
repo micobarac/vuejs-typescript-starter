@@ -480,6 +480,43 @@
     overflow: visible;
   }
 
+  .sidebar {
+    .sidebar-wrapper {
+      li.active {
+        >a {
+          &:not([data-toggle="collapse"]) {
+            &:before {
+              border-right: 17px solid #cfcfca;
+              border-top: 17px solid transparent;
+              border-bottom: 17px solid transparent;
+              content: "";
+              display: inline-block;
+              position: absolute;
+              right: 0;
+              opacity: 1;
+              top: 7px;
+              transition: opacity 150ms ease-in;
+            }
+            
+            &:after {
+              border-right: 17px solid #f4f3ef;
+              border-top: 17px solid transparent;
+              border-bottom: 17px solid transparent;
+              content: "";
+              display: inline-block;
+              position: absolute;
+              right: -1px;
+              opacity: 1;
+              top: 7px;
+              transition: opacity 150ms ease-in;
+            }
+          }
+        }
+      }
+    }
+  }
+  
+
 }
 
 @media (max-width: 991px) {

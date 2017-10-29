@@ -11,4 +11,4 @@ export const store = new Vuex.Store({
     sidebar
   },
   plugins: []
-})
+});
