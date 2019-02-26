@@ -1,9 +1,5 @@
-<div :class="sidebarClasses" :data-background-color="backgroundColor" :data-active-color="activeColor" data-image="../../../../assets/images/full-screen-image.jpg">
-  <!--
-          Tip 1: you can change the color of the sidebar's background using: data-background-color="white | black | darkblue"
-          Tip 2: you can change the color of the active button using the data-active-color="primary | info | success | warning | danger"
-      -->
-  <!-- -->
+<div :class="sidebarClasses" :data-background-color="backgroundColor" :data-active-color="activeColor"
+     data-image="../../../../assets/images/full-screen-image.jpg">
   <div class="sidebar-wrapper">
     <div class="logo">
       <a href="#" class="simple-text logo-mini">
@@ -18,20 +14,15 @@
     <slot>
 
     </slot>
-    <ul :class="navClasses">
-      <!--By default vue-router adds an active class to each route link. This way the links are colored when clicked-->
-      <router-link v-for="link in sidebarLinks" :key="link.name" :to="link.path" tag="li" :ref="link.name">
-        <a>
-          <i :class="link.icon"></i>
-
-          <p>{{ link.name }}
-          </p>
-        </a>
-      </router-link>
-    </ul>
+    <b-nav vertical class="w-25" :class="navClasses">
+      <b-nav-item v-for="link in sidebarLinks" :key="link.name" :to="link.path">
+        <i :class="link.icon"></i>
+        <p>{{link.name}}</p>
+      </b-nav-item>
+    </b-nav>
     <!-- <arrow :move-y="arrowMovePx">
 
     </arrow> -->
   </div>
-  <div class="sidebar-background" style="background-image: url(../../../../assets/images/full-screen-image.jpg)"></div>  
+  <div class="sidebar-background" style="background-image: url(../../../../assets/images/full-screen-image.jpg)"></div>
 </div>

@@ -1,0 +1,66 @@
+@import "../../../../assets/styles/paper/variables";
+@import "../../../../assets/styles/paper/mixins";
+
+.navbar-minimize .btn{
+  border-radius: $border-radius-btn-base;
+  box-sizing: border-box;
+  border-width: $border-thick;
+  background-color: $transparent-bg;
+  font-size: $font-size-base;
+  font-weight: $font-weight-semi;
+
+  padding: $padding-base-vertical $padding-base-horizontal;
+
+  @include btn-styles($default-color, $default-states-color);
+  @include transition($fast-transition-time, linear);
+
+  &:hover,
+  &:focus {
+    outline: 0 !important;
+  }
+  &:active,
+  &.active,
+  .open > &.dropdown-toggle {
+    @include box-shadow(none);
+    outline: 0 !important;
+  }
+
+  &.btn-icon {
+    padding: $padding-base-vertical;
+  }
+}
+
+.navbar-minimize {
+  float: left;
+
+  .btn {
+    border-radius: 25px;
+    padding: 7px 10px;
+
+    .ti-more-alt {
+      display: inline-block;
+      min-width: 14px;
+      -webkit-transform: rotate(90deg);
+      -ms-transform: rotate(90deg);
+      transform: rotate(90deg);
+    }
+
+    i {
+      margin-right: 0px;
+    }
+  }
+
+  .btn [class*="ti-"] {
+    vertical-align: middle;
+  }
+}
+
+.navbar{
+  border-bottom: 1px solid #DDDDDD;
+}
+
+@media (max-width: 991px) {
+  .main-panel {
+    width: 100%;
+  }
+}
