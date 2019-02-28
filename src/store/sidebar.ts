@@ -1,5 +1,5 @@
-import { GetterTree, MutationTree, ActionTree, Module } from 'vuex';
-import { SidebarState, SidebarLink } from '../models/types';
+import { ActionTree, GetterTree, Module, MutationTree } from 'vuex';
+import { SidebarState } from '../models/types';
 
 export const state: SidebarState = {
   isSidebarVisible: false,
@@ -8,7 +8,7 @@ export const state: SidebarState = {
     {
       name: 'Dashboard',
       icon: 'ti-panel',
-      //path: '/admin/overview',
+      // path: '/admin/overview',
       path: '/'
     },
     {
@@ -42,28 +42,28 @@ export const state: SidebarState = {
       path: '/admin/notifications'
     }
   ]
-}
+};
 
 export const getters: GetterTree<SidebarState, any> = {
-  isSidebarVisible: state => state.isSidebarVisible,
-  isSidebarMinimal: state => state.isSidebarMinimal,
-  sidebarLinks: state => state.sidebarLinks
-}
+  isSidebarVisible: () => state.isSidebarVisible,
+  isSidebarMinimal: () => state.isSidebarMinimal,
+  sidebarLinks: () => state.sidebarLinks
+};
 
 export const mutations: MutationTree<SidebarState> = {
-  displaySidebar(state, value) {
+  displaySidebar(_, value) {
     state.isSidebarVisible = value;
   },
-  minimizeSidebar(state, value) {
+  minimizeSidebar(_, value) {
     state.isSidebarMinimal = value;
   },
-  toggleSidebarDisplay(state) {
+  toggleSidebarDisplay() {
     state.isSidebarVisible = !state.isSidebarVisible;
   },
-  toggleSidebarSize(state) {
+  toggleSidebarSize() {
     state.isSidebarMinimal = !state.isSidebarMinimal;
   }
-}
+};
 
 export const actions: ActionTree<SidebarState, any> = {
   displaySidebar: ({ commit }, value) => {
@@ -78,7 +78,7 @@ export const actions: ActionTree<SidebarState, any> = {
   toggleSidebarSize: ({ commit }) => {
     commit('toggleSidebarSize');
   }
-}
+};
 
 export const sidebar: Module<SidebarState, any> = {
   state,
@@ -86,4 +86,4 @@ export const sidebar: Module<SidebarState, any> = {
   mutations,
   actions,
   namespaced: true
-}
+};

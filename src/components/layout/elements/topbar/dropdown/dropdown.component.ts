@@ -6,25 +6,25 @@ import { mixin as clickaway } from 'vue-clickaway';
   name: 'Dropdown',
   template: require('./dropdown.component.html'),
   style: require('./dropdown.component.scss'),
-  mixins: [ clickaway ]
+  mixins: [clickaway]
 })
 export class DropdownComponent extends Vue {
   @Prop()
-  title: String;
+  public title!: string;
 
   @Prop()
-  icon: String;
+  public icon!: string;
 
   @Provide()
-  isOpen: boolean = false;
+  public isOpen: boolean = false;
 
-  toggleDropDown() {
+  public toggleDropDown() {
     this.isOpen = !this.isOpen;
-  };
+  }
 
-  closeDropDown() {
+  public closeDropDown() {
     this.isOpen = false;
-  };
+  }
 }
 
 Vue.component('dropdown', DropdownComponent);

@@ -13,15 +13,13 @@ sync(store, router);
 
 // Plugins
 import vClickOutside from 'v-click-outside';
-import BootstrapVue from 'bootstrap-vue'
+import BootstrapVue from 'bootstrap-vue';
 
 // Components
 import { AppComponent } from './components/layout/app';
 
 // Styles
-import 'bootstrap/dist/css/bootstrap.css';
 import './assets/styles/main.scss';
-import 'bootstrap-vue/dist/bootstrap-vue.css'
 
 // Setup
 Vue.config.productionTip = false;
@@ -31,8 +29,8 @@ Vue.use(vClickOutside);
 Vue.use(BootstrapVue);
 
 // Vue init
-new Vue({
-  el: "app",
+const app = new Vue({
+  el: 'app',
   router,
   store,
   components: {

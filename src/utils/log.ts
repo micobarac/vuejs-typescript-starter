@@ -1,19 +1,19 @@
 export interface ILogger {
-	info(msg: any);
-	warn(msg: any);
-	error(msg: any);
+  info(msg: any): any;
+  warn(msg: any): any;
+  error(msg: any): any;
 }
 
 export class Logger implements ILogger {
-	info(msg: any) {
-		console.info(msg);
-	}
-	
-	warn(msg: any) {
-		console.warn(msg);
-	}
-	
-	error(msg: any) {
-		console.error(msg);
-	}
+  public info(msg: any) {
+    console.info(msg);
+  }
+
+  public warn(msg: any) {
+    console.warn(msg);
+  }
+
+  public error(msg: any) {
+    console.error(msg);
+  }
 }

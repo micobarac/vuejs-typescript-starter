@@ -1,13 +1,13 @@
 // Store
 export interface SidebarState {
-  isSidebarVisible: Boolean;
-  isSidebarMinimal: Boolean;
+  isSidebarVisible: boolean;
+  isSidebarMinimal: boolean;
   sidebarLinks: SidebarLink[];
 }
 
 // Model
 export interface SidebarLink {
-  name: string,
-  icon: string,
-  path: string
+  name: string;
+  icon: string;
+  path: string;
 }

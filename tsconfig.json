@@ -1,16 +1,24 @@
 {
   "compilerOptions": {
-    "lib": [
-      "dom",
-      "es5",
-      "es2015"
-    ],
     "target": "es5",
     "module": "es2015",
+    "strict": true,
+    "jsx": "preserve",
+    "importHelpers": true,
     "moduleResolution": "node",
-    "sourceMap": true,
-    "allowSyntheticDefaultImports": true,
     "experimentalDecorators": true,
-    "emitDecoratorMetadata": true
-  }
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "sourceMap": true,
+    "emitDecoratorMetadata": true,
+    "baseUrl": ".",
+    "types": ["webpack-env"],
+    "paths": {
+      "*": ["shims/*"],
+      "@/*": ["src/*"]
+    },
+    "lib": ["esnext", "es5", "es2015", "dom", "dom.iterable", "scripthost"]
+  },
+  "include": ["src/**/*.ts", "src/**/*.tsx", "src/**/*.vue", "tests/**/*.ts", "tests/**/*.tsx", "shims/*.d.ts"],
+  "exclude": ["node_modules"]
 }

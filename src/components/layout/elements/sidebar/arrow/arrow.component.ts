@@ -7,9 +7,8 @@ import { Component, Prop } from 'vue-property-decorator';
   style: require('./arrow.component.scss')
 })
 export class ArrowComponent extends Vue {
-  
   @Prop({ default: 0 })
-  moveY: Number;
+  public moveY!: number;
 
   /**
    * Styles to animate the arrow
@@ -18,9 +17,8 @@ export class ArrowComponent extends Vue {
   get arrowStyle() {
     return {
       transform: `translate3d(0px, ${this.moveY}px, 0px)`
-    }
+    };
   }
-  
 }
 
 Vue.component('arrow', ArrowComponent);

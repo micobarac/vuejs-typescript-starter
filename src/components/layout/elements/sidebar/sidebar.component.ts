@@ -9,36 +9,35 @@ import { ArrowComponent } from './arrow';
   components: { ArrowComponent }
 })
 export class SidebarComponent extends Vue {
-  
   @Prop({
     default: 'sidebar',
     validator: (value) => {
-      let acceptedValues = ['sidebar', 'navbar'];
+      const acceptedValues = ['sidebar', 'navbar'];
       return acceptedValues.indexOf(value) !== -1;
     }
   })
-  type: string;
+  public type!: string;
 
   @Prop({
     default: 'black',
     validator: (value) => {
-      let acceptedValues = ['white', 'black', 'darkblue'];
+      const acceptedValues = ['white', 'black', 'darkblue'];
       return acceptedValues.indexOf(value) !== -1;
     }
   })
-  backgroundColor: string;
+  public backgroundColor!: string;
 
   @Prop({
     default: 'success',
     validator: (value) => {
-      let acceptedValues = ['primary', 'info', 'success', 'warning', 'danger'];
+      const acceptedValues = ['primary', 'info', 'success', 'warning', 'danger'];
       return acceptedValues.indexOf(value) !== -1;
     }
   })
-  activeColor: string;
+  public activeColor!: string;
 
   @Prop({ default: () => [] })
-  sidebarLinks: Array<any>;
+  public sidebarLinks!: any[];
 
   get sidebarClasses() {
     if (this.type === 'sidebar') {
@@ -65,39 +64,38 @@ export class SidebarComponent extends Vue {
   }
 
   @Provide()
-  linkHeight: number = 60;
+  public linkHeight: number = 60;
 
   @Provide()
-  activeLinkIndex: number = 0;
+  public activeLinkIndex: number = 0;
 
   @Provide()
-  windowWidth: number = 0;
+  public windowWidth: number = 0;
 
   @Provide()
-  isWindows: boolean = false;
+  public isWindows: boolean = false;
 
   @Provide()
-  hasAutoHeight: boolean = false;
+  public hasAutoHeight: boolean = false;
 
   @Watch('$route')
-  onRouteChanged(newRoute: any, oldRoute: any) { 
+  public onRouteChanged(newRoute: any, oldRoute: any) {
     this.findActiveLink();
   }
 
-  findActiveLink() {
+  public findActiveLink() {
     this.sidebarLinks.find((element, index) => {
-      let found = element.path === this.$route.path;
+      const found = element.path === this.$route.path;
       if (found) {
         this.activeLinkIndex = index;
       }
       return found;
-    })
+    });
   }
 
-  mounted() {
+  public mounted() {
     this.findActiveLink();
   }
-  
 }
 
 Vue.component('sidebar', SidebarComponent);

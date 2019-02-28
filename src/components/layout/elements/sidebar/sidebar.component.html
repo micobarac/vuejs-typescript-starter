@@ -1,5 +1,5 @@
 <div :class="sidebarClasses" :data-background-color="backgroundColor" :data-active-color="activeColor"
-     data-image="../../../../assets/images/full-screen-image.jpg">
+  data-image="../../../../assets/images/full-screen-image.jpg">
   <div class="sidebar-wrapper">
     <div class="logo">
       <a href="#" class="simple-text logo-mini">
@@ -14,7 +14,7 @@
     <slot>
 
     </slot>
-    <b-nav vertical class="w-25" :class="navClasses">
+    <b-nav vertical>
       <b-nav-item v-for="link in sidebarLinks" :key="link.name" :to="link.path">
         <i :class="link.icon"></i>
         <p>{{link.name}}</p>

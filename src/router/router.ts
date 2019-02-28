@@ -9,9 +9,6 @@ import { notFoundRoutes } from '../components/layout/not-found';
 Vue.use(VueRouter);
 
 export default new VueRouter({
-  routes: [ 
-    dashboardRoutes,
-    notFoundRoutes
-  ],
+  routes: [dashboardRoutes, notFoundRoutes],
   linkActiveClass: 'active'
-})
+});

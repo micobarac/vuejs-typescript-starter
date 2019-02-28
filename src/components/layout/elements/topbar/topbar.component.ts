@@ -1,10 +1,9 @@
 import Vue from 'vue';
 import { Component, Provide } from 'vue-property-decorator';
-import { Getter, Action, namespace } from 'vuex-class';
+import { namespace } from 'vuex-class';
 import { DropdownComponent } from './dropdown';
 
-const SidebarGetter = namespace('sidebar', Getter);
-const SidebarAction = namespace('sidebar', Action);
+const Sidebar = namespace('sidebar');
 
 @Component({
   name: 'TopbarComponent',
@@ -15,45 +14,45 @@ const SidebarAction = namespace('sidebar', Action);
 export class TopbarComponent extends Vue {
   [x: string]: any;
 
-  @SidebarGetter
-  isSidebarVisible: Boolean;
+  @Sidebar.Getter
+  public isSidebarVisible!: boolean;
 
-  @SidebarGetter
-  isSidebarMinimal: Boolean;
+  @Sidebar.Getter
+  public isSidebarMinimal!: boolean;
 
-  @SidebarAction
-  displaySidebar;
+  @Sidebar.Action
+  public displaySidebar!: (state: boolean) => void;
 
-  @SidebarAction
-  minimizeSidebar;
+  @Sidebar.Action
+  public minimizeSidebar: any;
 
-  @SidebarAction
-  toggleSidebarDisplay;
+  @Sidebar.Action
+  public toggleSidebarDisplay: any;
 
-  @SidebarAction
-  toggleSidebarSize;
-  
+  @Sidebar.Action
+  public toggleSidebarSize: any;
+
   @Provide()
-  activeNotifications: boolean = false;
+  public activeNotifications: boolean = false;
 
   get routeName() {
-    const {name} = this.$route;
-    return this.capitalizeFirstLetter(name);
+    const { name } = this.$route;
+    return this.capitalizeFirstLetter(name || '');
   }
 
-  capitalizeFirstLetter(string) {
-    return string.charAt(0).toUpperCase() + string.slice(1);
-  };
+  public capitalizeFirstLetter(name: string) {
+    return name.charAt(0).toUpperCase() + name.slice(1);
+  }
 
-  toggleNotificationDropDown() {
+  public toggleNotificationDropDown() {
     this.activeNotifications = !this.activeNotifications;
-  };
+  }
 
-  closeDropDown() {
+  public closeDropDown() {
     this.activeNotifications = false;
-  };
+  }
 
-  hideSidebar() {
+  public hideSidebar() {
     this.displaySidebar(false);
   }
 }

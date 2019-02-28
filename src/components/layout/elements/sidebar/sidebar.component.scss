@@ -1,7 +1,15 @@
+@import '../../../../assets/styles/paper/variables';
+@import '../../../../assets/styles/paper/mixins';
+
+.sidebar .logo .simple-text,
+.off-canvas-sidebar .logo .simple-text {
+  font-size: $font-size-large !important;
+}
+
 .sidebar:before,
 body > .navbar-collapse:before {
-  opacity: .33;
-  background: #000000; 
+  opacity: 0.33;
+  background: #000000;
 }
 
 .sidebar:after,
@@ -14,11 +22,12 @@ body > .navbar-collapse:after {
   background: linear-gradient(to bottom, #282828 0%, #111 100%);
   background-size: 150% 150%;
   z-index: 3;
-  opacity: 1; 
+  opacity: 1;
 }
 
-.sidebar[data-image]:after, .sidebar.has-image:after,
+.sidebar[data-image]:after,
+.sidebar.has-image:after,
 body > .navbar-collapse[data-image]:after,
 body > .navbar-collapse.has-image:after {
-  opacity: .77; 
+  opacity: 0.77;
 }

@@ -1,12 +1,12 @@
-@import "../../../../assets/styles/paper/variables";
-@import "../../../../assets/styles/paper/mixins";
+@import '../../../../assets/styles/paper/variables';
+@import '../../../../assets/styles/paper/mixins';
 
-.navbar-minimize .btn{
+.navbar-minimize .btn {
   border-radius: $border-radius-btn-base;
   box-sizing: border-box;
   border-width: $border-thick;
   background-color: $transparent-bg;
-  font-size: $font-size-base;
+  font-size: $font-size-small;
   font-weight: $font-weight-semi;
 
   padding: $padding-base-vertical $padding-base-horizontal;
@@ -50,13 +50,18 @@
     }
   }
 
-  .btn [class*="ti-"] {
+  .btn [class*='ti-'] {
     vertical-align: middle;
   }
 }
 
-.navbar{
-  border-bottom: 1px solid #DDDDDD;
+.navbar {
+  border-bottom: 1px solid #dddddd;
+  font-size: $font-size-base;
+
+  .navbar-brand {
+    font-size: $font-size-large;
+  }
 }
 
 @media (max-width: 991px) {

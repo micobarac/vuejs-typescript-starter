@@ -6,6 +6,4 @@ import { Component } from 'vue-property-decorator';
   template: require('./not-found.component.html'),
   style: require('./not-found.component.scss')
 })
-export class NotFoundComponent extends Vue {
-  
-}
+export class NotFoundComponent extends Vue {}

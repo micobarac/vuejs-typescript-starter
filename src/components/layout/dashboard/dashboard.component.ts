@@ -1,11 +1,10 @@
 import Vue from 'vue';
 import { Component } from 'vue-property-decorator';
-import { Getter, Action, namespace } from 'vuex-class';
+import { namespace } from 'vuex-class';
 import { TopbarComponent } from '../elements/topbar';
 import { SidebarLink } from './../../../models/types';
 
-const SidebarGetter = namespace('sidebar', Getter);
-const SidebarAction = namespace('sidebar', Action);
+const Sidebar = namespace('sidebar');
 
 @Component({
   name: 'DashboardComponent',
@@ -14,12 +13,12 @@ const SidebarAction = namespace('sidebar', Action);
   components: { TopbarComponent }
 })
 export default class DashboardComponent extends Vue {
-  @SidebarGetter
-  isSidebarVisible: Boolean;
+  @Sidebar.Getter
+  public isSidebarVisible!: boolean;
 
-  @SidebarGetter
-  sidebarLinks: Array<SidebarLink>;
+  @Sidebar.Getter
+  public sidebarLinks!: SidebarLink[];
 
-  @SidebarAction
-  toggleSidebarDisplay;
+  @Sidebar.Action
+  public toggleSidebarDisplay: any;
 }

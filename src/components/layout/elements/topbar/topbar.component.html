@@ -1,38 +1,36 @@
-<div>
-  <b-navbar toggleable="lg" variant="faded" type="light">
-    <b-navbar-nav>
-      <b-nav-item class="navbar-minimize">
-        <button class="btn btn-fill btn-icon" @click="toggleSidebarSize">
-          <i :class="[isSidebarMinimal ? 'ti-menu-alt' : 'ti-more-alt']"></i>
-        </button>
+<b-navbar toggleable="lg" variant="faded" type="light">
+  <b-navbar-nav>
+    <b-nav-item class="navbar-minimize">
+      <button class="btn btn-fill btn-icon" @click="toggleSidebarSize">
+        <i :class="[isSidebarMinimal ? 'ti-menu-alt' : 'ti-more-alt']"></i>
+      </button>
+    </b-nav-item>
+  </b-navbar-nav>
+  <b-navbar-brand href="#">{{ routeName }}</b-navbar-brand>
+  <b-navbar-toggle target="nav_collapse" />
+  <b-collapse is-nav id="nav_collapse">
+
+    <!-- Right aligned nav items -->
+    <b-navbar-nav class="ml-auto">
+      <b-nav-item>
+        <i class="ti-panel"></i>
+        Stats
+      </b-nav-item>
+      <b-nav-item-dropdown text="5 Notifications" right>
+        <template slot="button-content">
+          <i class="ti-bell"></i>
+          5 Notifications
+        </template>
+        <b-dropdown-item>Notification 1</b-dropdown-item>
+        <b-dropdown-item>Notification 2</b-dropdown-item>
+        <b-dropdown-item>Notification 3</b-dropdown-item>
+        <b-dropdown-item>Notification 4</b-dropdown-item>
+        <b-dropdown-item>Another notification</b-dropdown-item>
+      </b-nav-item-dropdown>
+      <b-nav-item>
+        <i class="ti-settings"></i>
+        Settings
       </b-nav-item>
     </b-navbar-nav>
-    {{ routeName }}
-    <b-navbar-toggle target="nav_collapse"/>
-    <b-collapse is-nav id="nav_collapse">
-
-      <!-- Right aligned nav items -->
-      <b-navbar-nav class="ml-auto">
-        <b-nav-item class="open">
-          <i class="ti-panel"></i>
-          Stats
-        </b-nav-item>
-        <b-nav-item-dropdown text="5 Notifications" right>
-          <template slot="button-content">
-            <i class="ti-bell"></i>
-            5 Notifications
-          </template>
-          <b-dropdown-item>Notification 1</b-dropdown-item>
-          <b-dropdown-item>Notification 2</b-dropdown-item>
-          <b-dropdown-item>Notification 3</b-dropdown-item>
-          <b-dropdown-item>Notification 4</b-dropdown-item>
-          <b-dropdown-item>Another notification</b-dropdown-item>
-        </b-nav-item-dropdown>
-        <b-nav-item>
-          <i class="ti-settings"></i>
-          Settings
-        </b-nav-item>
-      </b-navbar-nav>
-    </b-collapse>
-  </b-navbar>
-</div>
+  </b-collapse>
+</b-navbar>

@@ -13,15 +13,15 @@
  * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
  */
-@import "paper/variables";
-@import "paper/mixins";
-@import "paper/typography";
+@import 'paper/variables';
+@import 'paper/mixins';
+@import 'paper/typography';
+
 // Core CSS
-@import "paper/misc";
-@import "paper/sidebar-and-main-panel";
-@import "paper/checkbox-radio";
-@import "paper/footers";
+@import 'paper/misc';
+@import 'paper/sidebar-and-main-panel';
+@import 'paper/checkbox-radio';
+@import 'paper/footers';
 
-
-
-
+// Fancy Stuff
+//@import 'paper/responsive';
