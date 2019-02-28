@@ -19,8 +19,8 @@ module.exports = {
     config.module
       .rule('ts')
       .test(/\.ts$/)
-      .use('awesome-typescript-loader')
-      .loader('awesome-typescript-loader')
+      .use('ts-loader')
+      .loader('ts-loader')
       .end();
 
     config.module
