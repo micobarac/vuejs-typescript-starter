@@ -12,26 +12,27 @@
   },
   "dependencies": {
     "bootstrap-vue": "^2.0.0-rc.13",
+    "jquery": "^3.3.1",
     "v-click-outside": "^2.0.2",
-    "vue": "^2.6.7",
-    "vue-class-component": "^6.0.0",
+    "vue": "^2.6.8",
+    "vue-class-component": "^7.0.1",
     "vue-clickaway": "^2.2.2",
-    "vue-property-decorator": "^7.0.0",
-    "vue-router": "^3.0.1",
-    "vuex": "^3.0.1",
+    "vue-property-decorator": "^7.3.0",
+    "vue-router": "^3.0.2",
+    "vuex": "^3.1.0",
     "vuex-class": "^0.3.1",
     "vuex-router-sync": "^5.0.0"
   },
   "devDependencies": {
-    "@vue/cli-plugin-typescript": "^3.4.0",
-    "@vue/cli-service": "^3.4.0",
+    "@vue/cli-plugin-typescript": "^3.4.1",
+    "@vue/cli-service": "^3.4.1",
     "awesome-typescript-loader": "^5.2.1",
     "html-loader": "^0.5.5",
-    "node-sass": "^4.9.0",
+    "node-sass": "^4.11.0",
     "sass-loader": "^7.1.0",
     "ts-loader": "^5.3.3",
-    "typescript": "^3.0.0",
+    "typescript": "^3.3.3333",
     "url-loader": "^1.1.2",
-    "vue-template-compiler": "^2.5.21"
+    "vue-template-compiler": "^2.6.8"
   }
 }
