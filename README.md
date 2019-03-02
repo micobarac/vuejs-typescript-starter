@@ -64,9 +64,11 @@ export default class DashboardComponent extends Vue {
 For detailed explanation on how things work, checkout the following guides:
 
 - [Vue.js Property Decorator](http://github.com/kaorun343/vue-property-decorator)
+- [Vuex](https://vuex.vuejs.org/) : state management pattern + library for Vue.js applications
 - [Webpack](http://vuejs-templates.github.io/webpack/)
 - [Webpack loader for Vue.js components](http://vuejs.github.io/vue-loader)
-- [Awesome TypeScript loader for webpack](https://github.com/s-panferov/awesome-typescript-loader)
+- [TypeScript loader for webpack](https://github.com/TypeStrong/ts-loader)
+- [BootsrapVue](https://bootstrap-vue.js.org/): implementations of Bootstrap V4 components and grid system available for Vue.js 2.5+
 
 ### Customize configuration
 
