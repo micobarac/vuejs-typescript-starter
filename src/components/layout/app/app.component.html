@@ -1,4 +1,4 @@
-<div :class="{'nav-open': isSidebarVisible, 'sidebar-mini': isSidebarMinimal}">
+<div :class="{'nav-open': isSidebarVisible, 'sidebar-mini': isSidebarMinimal}" :key="language">
   <router-view></router-view>
   <!--This sidebar appears only for screens smaller than 992px-->
   <sidebar type="navbar" :sidebar-links="sidebarLinks">
