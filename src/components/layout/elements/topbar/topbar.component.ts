@@ -2,8 +2,10 @@ import Vue from 'vue';
 import { Component, Provide } from 'vue-property-decorator';
 import { namespace } from 'vuex-class';
 import { DropdownComponent } from './dropdown';
+import {Language} from '../../../../store/language.store';
 
 const Sidebar = namespace('sidebar');
+const Language = namespace('language');
 
 @Component({
   name: 'TopbarComponent',
@@ -32,8 +34,17 @@ export class TopbarComponent extends Vue {
   @Sidebar.Action
   public toggleSidebarSize: any;
 
+  @Language.Getter
+  public languages !: Language[];
+
+  @Language.Getter
+  public selectedLanguage !: string;
+
   @Provide()
   public activeNotifications: boolean = false;
+
+  @Language.Mutation
+  private selectLanguage !: ({}) => void;
 
   get routeName() {
     const { name } = this.$route;
@@ -42,6 +53,10 @@ export class TopbarComponent extends Vue {
 
   public capitalizeFirstLetter(name: string) {
     return name.charAt(0).toUpperCase() + name.slice(1);
+  }
+
+  public onSelectedLanguageOptionChanged(value: string) {
+    this.selectLanguage({locale: value, vm: this});
   }
 
   public toggleNotificationDropDown() {
@@ -55,6 +70,7 @@ export class TopbarComponent extends Vue {
   public hideSidebar() {
     this.displaySidebar(false);
   }
+
 }
 
 Vue.component('topbar', TopbarComponent);

@@ -7,6 +7,7 @@ import { DropdownComponent } from '../elements/topbar/dropdown';
 import { SidebarLink } from './../../../models/types';
 
 const Sidebar = namespace('sidebar');
+const Language = namespace('language');
 
 @Component({
   name: 'AppComponent',
@@ -29,11 +30,18 @@ export class AppComponent extends Vue {
 
   protected logger: Logger = new Logger();
 
+  @Language.Getter
+  private selectedLanguage !: string;
+
   public mounted() {
     if (!this.logger) {
       this.logger = new Logger();
     }
     this.$nextTick(() => this.logger.info('App is ready!'));
+  }
+
+  get language(): string {
+    return this.selectedLanguage;
   }
 }
 
