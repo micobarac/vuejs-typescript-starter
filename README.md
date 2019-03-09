@@ -69,7 +69,10 @@ For detailed explanation on how things work, checkout the following guides:
 - [Webpack loader for Vue.js components](http://vuejs.github.io/vue-loader)
 - [TypeScript loader for webpack](https://github.com/TypeStrong/ts-loader)
 - [BootsrapVue](https://bootstrap-vue.js.org/): implementations of Bootstrap V4 components and grid system available for Vue.js 2.5+
+- [vue-moment](https://github.com/brockpetrie/vue-moment) from [Moment.js](http://momentjs.com/)
 
 ### Customize configuration
-
 See [Configuration Reference](https://cli.vuejs.org/config/).
+
+#### [Google OAuth2](https://www.npmjs.com/package/vue-google-oauth2)
+ 

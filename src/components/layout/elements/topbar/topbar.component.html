@@ -31,10 +31,14 @@
         <b-dropdown-item>Notification 4</b-dropdown-item>
         <b-dropdown-item>Another notification</b-dropdown-item>
       </b-nav-item-dropdown>
-      <b-nav-item>
-        <i class="ti-settings"></i>
-        Settings
+      <b-nav-item v-if="!isSignIn">
+        <gauth2-login/>
       </b-nav-item>
+      <b-nav-item-dropdown right v-if="isSignIn">
+        <!-- Using button-content slot -->
+        <template slot="button-content"><em>{{ userName }}</em></template>
+        <b-dropdown-item v-on:click="onClickSignOut">Sign-out</b-dropdown-item>
+      </b-nav-item-dropdown>
     </b-navbar-nav>
   </b-collapse>
 </b-navbar>

@@ -12,13 +12,15 @@
     "sourceMap": true,
     "emitDecoratorMetadata": true,
     "baseUrl": ".",
-    "types": ["webpack-env"],
+    "types": ["webpack-env", "gapi", "gapi.auth2"],
     "paths": {
       "*": ["shims/*"],
       "@/*": ["src/*"]
     },
+    "resolveJsonModule": true,
     "lib": ["esnext", "es5", "es2015", "dom", "dom.iterable", "scripthost"]
   },
+  "typeRoots": ["node_modules", "node_modules/@types"],
   "include": ["src/**/*.ts", "src/**/*.tsx", "src/**/*.vue", "tests/**/*.ts", "tests/**/*.tsx", "shims/*.d.ts"],
   "exclude": ["node_modules"]
 }
